@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+
+class CustomElevatedButton extends StatelessWidget {
+  final void Function()? _onPressed;
+  const CustomElevatedButton({
+    Key? key,
+    required void Function()? onPressed,
+  })  : _onPressed = onPressed,
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 48,
+      width: double.infinity,
+      child: ElevatedButton(
+        child: const Text('Login'),
+        onPressed: _onPressed,
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomTextButton extends StatelessWidget {
+  const CustomTextButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 48,
+      width: double.infinity,
+      child: TextButton(
+        onPressed: () {},
+        child: const Text('Skip'),
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class GoogleButton extends StatelessWidget {
+  const GoogleButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 48,
+      width: double.infinity,
+      child: SizedBox(
+        child: TextButton.icon(
+          onPressed: () {},
+          icon: Image.asset(
+            'assets/images/google_icon.png',
+            height: 24,
+          ),
+          label: const Text('Continue with Google'),
+          style: TextButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: const BorderSide(),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

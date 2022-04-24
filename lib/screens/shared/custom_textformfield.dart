@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class CustomTextFormField extends StatelessWidget {
   final String hintText;
   const CustomTextFormField({
-    Key? key,required this.hintText,
+    Key? key,
+    required this.hintText,
   }) : super(key: key);
 
   @override
@@ -65,5 +66,29 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
   void dispose() {
     obscureText.dispose();
     super.dispose();
+  }
+}
+
+class SearchTextFormField extends StatelessWidget {
+  final String hintText;
+  const SearchTextFormField({
+    Key? key,required this.hintText
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: hintText,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+        filled: true,
+        fillColor: const Color(0xFFE4E4E4),
+        prefixIcon: const Icon(Icons.search),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+      ),
+    );
   }
 }

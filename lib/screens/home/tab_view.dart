@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
 import 'package:simply_tailored/screens/home/customer_list_page/customer_list_page.dart';
 import 'package:simply_tailored/screens/home/home_page/home_page.dart';
+import 'package:simply_tailored/screens/home/more_page.dart';
 import 'package:simply_tailored/screens/home/order_list_page/order_list_page.dart';
 
 class TabView extends StatefulWidget {
@@ -40,7 +41,7 @@ class _TabViewState extends State<TabView> {
               HomePage(),
               const CustomerListPage(),
               const OrderListPage(),
-              const Scaffold(),
+              const MorePage(),
             ]),
       ),
       bottomNavigationBar: ValueListenableBuilder<int>(

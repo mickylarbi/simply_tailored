@@ -6,3 +6,4 @@ double kScreenWidth(context) => MediaQuery.of(context).size.width;
 
 String kLogoTag = 'logoTag';
 
+Color kBackgroundColor = const Color(0xFFF9F9F9);

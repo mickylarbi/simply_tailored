@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
 import 'package:simply_tailored/screens/auth/sign_in_screen.dart';
+import 'package:simply_tailored/screens/home/tab_view.dart';
 import 'package:simply_tailored/screens/shared/custom_buttons.dart';
 import 'package:simply_tailored/screens/shared/custom_text_span.dart';
 import 'package:simply_tailored/screens/shared/custom_textformfield.dart';
@@ -41,7 +42,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 const SizedBox(height: 50),
                 CustomElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TabView()),
+                        (route) => false);
+                  },
                 ),
                 const SizedBox(height: 30),
                 CustomTextSpan(

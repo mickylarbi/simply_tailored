@@ -36,14 +36,23 @@ class _PendingOrdersListViewState extends State<PendingOrdersListView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: [
-                    const Text(
+                  children: const [
+                    Text(
                       'Ama Jones\nJessica Arthur',
                       maxLines: 2,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    const Spacer(),
-                    pictureStack()
+                    Spacer(),
+                    PictureStack(
+                      pictures: [
+                        Colors.green,
+                        Colors.red,
+                        Colors.blue,
+                        Colors.pink,
+                        Colors.yellow
+                      ],
+                      pictureSize: 30,
+                    )
                   ],
                 ),
                 const Spacer(),
@@ -76,27 +85,48 @@ class _PendingOrdersListViewState extends State<PendingOrdersListView> {
     );
   }
 
-  Widget pictureStack() {
-    List pictures = [
-      Colors.green,
-      Colors.red,
-      Colors.blue,
-      Colors.pink,
-      Colors.yellow
-    ];
+  // Widget pictureStack() {
+  //   List pictures = [
+  //     Colors.green,
+  //     Colors.red,
+  //     Colors.blue,
+  //     Colors.pink,
+  //     Colors.yellow
+  //   ];
 
+  //   return ;
+  // }
+}
+
+class PictureStack extends StatelessWidget {
+  const PictureStack({
+    Key? key,
+    required this.pictures,
+    required this.pictureSize,
+  }) : super(key: key);
+
+  final List pictures;
+  final double pictureSize;
+
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
-      width: (pictures.length * 30) - ((pictures.length - 1) * 15),
-      height: 30,
+      width: (pictures.length * pictureSize) -
+          ((pictures.length - 1) * (pictureSize / 2)),
+      height: pictureSize,
       child: Stack(
           alignment: Alignment.center,
           children: List.generate(
               pictures.length > 4 ? 4 : pictures.length,
               (index) => Positioned(
-                    right: index * 15,
+                    right: index * (pictureSize / 2),
                     child: Container(
-                      height: pictures.length > 4 && index == 0 ? 28 : 30,
-                      width: pictures.length > 4 && index == 0 ? 28 : 30,
+                      height: pictures.length > 4 && index == 0
+                          ? (pictureSize * .9)
+                          : pictureSize,
+                      width: pictures.length > 4 && index == 0
+                          ? (pictureSize * .9)
+                          : pictureSize,
                       decoration: BoxDecoration(
                         color: pictures.length > 4 && index == 0
                             ? Colors.grey
@@ -104,7 +134,7 @@ class _PendingOrdersListViewState extends State<PendingOrdersListView> {
                                 .sublist(0,
                                     pictures.length > 4 ? 4 : pictures.length)
                                 .reversed
-                                .toList()[index], //TODO: use reverse list
+                                .toList()[index],
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),

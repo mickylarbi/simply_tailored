@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
 import 'package:simply_tailored/screens/home/customer_list_page/customer_list_page.dart';
 import 'package:simply_tailored/screens/home/home_page/home_page.dart';
+import 'package:simply_tailored/screens/home/order_list_page/order_list_page.dart';
 
 class TabView extends StatefulWidget {
   const TabView({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class _TabViewState extends State<TabView> {
             children: [
               HomePage(),
               const CustomerListPage(),
-              const Scaffold(),
+              const OrderListPage(),
               const Scaffold(),
             ]),
       ),

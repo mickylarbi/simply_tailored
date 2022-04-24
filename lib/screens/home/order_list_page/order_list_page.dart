@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
+import 'package:simply_tailored/screens/home/home_page/pending_orders_list_view.dart';
 import 'package:simply_tailored/screens/shared/custom_textformfield.dart';
 
-class CustomerListPage extends StatefulWidget {
-  const CustomerListPage({Key? key}) : super(key: key);
+class OrderListPage extends StatefulWidget {
+  const OrderListPage({Key? key}) : super(key: key);
 
   @override
-  State<CustomerListPage> createState() => _CustomerListPageState();
+  State<OrderListPage> createState() => _OrderListPageState();
 }
 
-class _CustomerListPageState extends State<CustomerListPage> {
+class _OrderListPageState extends State<OrderListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class _CustomerListPageState extends State<CustomerListPage> {
             collapsedHeight: 80,
             flexibleSpace: const FlexibleSpaceBar(
               title: Text(
-                'Customers',
+                'Orders',
                 style: TextStyle(color: Colors.black),
               ),
               titlePadding: EdgeInsets.symmetric(vertical: 24, horizontal: 48),
@@ -34,27 +35,36 @@ class _CustomerListPageState extends State<CustomerListPage> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
-                  const SearchTextFormField(hintText: 'Search customer'),
+                  const SearchTextFormField(hintText: 'Search order'),
                   const Divider(height: 48),
                   ListView.separated(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: 20,
                     itemBuilder: (context, index) => ListTile(
-                      leading: Container(
-                        height: 50,
-                        width: 50,
-                        // margin: const EdgeInsets.only(right: 24, top: 24),
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                      title: const Text('Ama Jessica and Afful Joel'),
+                      subtitle: const Text('- Slit and Kaba\n- Pant Suit'),
+                      isThreeLine: true,
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          PictureStack(
+                            pictureSize: 40,
+                            pictures: [
+                              Colors.green,
+                              Colors.red,
+                              Colors.blue,
+                              Colors.pink,
+                              Colors.yellow
+                            ],
+                          ),
+                          SizedBox(width: 20),
+                          Icon(Icons.chevron_right)
+                        ],
                       ),
-                      title: const Text('Ama Jessica'),
-                      trailing: const Icon(Icons.chevron_right),
                     ),
                     separatorBuilder: (context, index) => const Divider(
-                      indent: 80,
+                      indent: 14,
                       endIndent: 24,
                       // thickness: 1,
                     ),
@@ -63,11 +73,6 @@ class _CustomerListPageState extends State<CustomerListPage> {
               ),
             ),
           ),
-          // SliverList(
-          //   delegate: SliverChildListDelegate(
-          //     [],
-          //   ),
-          // )
         ],
       ),
       floatingActionButton: FloatingActionButton(

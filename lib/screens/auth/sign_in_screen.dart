@@ -31,11 +31,15 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 const SizedBox(height: 100),
-                const CustomTextFormField(hintText: 'Email'),
+                const CustomTextFormField(
+                  hintText: 'Email',
+                  keyboardType: TextInputType.emailAddress,
+                ),
                 const SizedBox(height: 20),
                 const PasswordTextFormField(),
                 const SizedBox(height: 50),
                 CustomElevatedButton(
+                  labelText: 'Login',
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
                         context,

@@ -38,6 +38,7 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
               const SizedBox(height: 100),
               CustomElevatedButton(
+                labelText: 'Login',
                 onPressed: () {
                   Navigator.push(
                       context,

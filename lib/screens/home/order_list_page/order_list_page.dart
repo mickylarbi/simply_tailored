@@ -35,7 +35,7 @@ class _OrderListPageState extends State<OrderListPage> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
-                  const SearchTextFormField(hintText: 'Search order'),
+                  const PrefixTextFormField(hintText: 'Search order', iconData: Icons.search),
                   const Divider(height: 48),
                   ListView.separated(
                     shrinkWrap: true,

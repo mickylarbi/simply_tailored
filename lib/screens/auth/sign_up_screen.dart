@@ -31,9 +31,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 const SizedBox(height: 100),
-                const CustomTextFormField(hintText: 'Full Name'),
+                const CustomTextFormField(
+                  hintText: 'Full Name',
+                  keyboardType: TextInputType.name,
+                  textCapitalization: TextCapitalization.words,
+                ),
                 const SizedBox(height: 20),
-                const CustomTextFormField(hintText: 'Email'),
+                const CustomTextFormField(
+                  hintText: 'Email',
+                  keyboardType: TextInputType.emailAddress,
+                ),
                 const SizedBox(height: 20),
                 const PasswordTextFormField(),
                 const SizedBox(height: 20),
@@ -42,6 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 const SizedBox(height: 50),
                 CustomElevatedButton(
+                  labelText: 'Sign up',
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
                         context,

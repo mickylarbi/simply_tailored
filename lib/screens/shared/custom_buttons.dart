@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final void Function()? _onPressed;
-  const CustomElevatedButton({
-    Key? key,
-    required void Function()? onPressed,
-  })  : _onPressed = onPressed,
+  final String labelText;
+  const CustomElevatedButton(
+      {Key? key, required void Function()? onPressed, required this.labelText})
+      : _onPressed = onPressed,
         super(key: key);
 
   @override
@@ -14,7 +14,7 @@ class CustomElevatedButton extends StatelessWidget {
       height: 48,
       width: double.infinity,
       child: ElevatedButton(
-        child: const Text('Login'),
+        child: Text(labelText),
         onPressed: _onPressed,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

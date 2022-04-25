@@ -14,36 +14,40 @@ class _PendingOrdersListViewState extends State<PendingOrdersListView> {
     return SizedBox(
       height: 200,
       // color: Colors.blue,
-      child: ListView(
+      child: ListView.separated(
+        clipBehavior: Clip.none,
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 48),
-        children: [
-          Container(
-            // height: 100,
-            width: 260,
-            padding: const EdgeInsets.fromLTRB(24, 24, 24, 10),
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 30,
-                  color: Colors.black.withOpacity(.1),
-                )
-              ],
-              color: kBackgroundColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: const [
-                    Text(
-                      'Ama Jones\nJessica Arthur',
-                      maxLines: 2,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Spacer(),
-                    PictureStack(
+        itemCount: 5,
+        itemBuilder: (context, index) => Container(
+          clipBehavior: Clip.none,
+          // height: 100,
+          width: 260,
+          padding: const EdgeInsets.fromLTRB(24, 24, 24, 10),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 30,
+                color: Colors.black.withOpacity(.1),
+              )
+            ],
+            color: kBackgroundColor,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'Ama Jones\nwith Jessica Arthur',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: PictureStack(
                       pictures: [
                         Colors.green,
                         Colors.red,
@@ -52,35 +56,36 @@ class _PendingOrdersListViewState extends State<PendingOrdersListView> {
                         Colors.yellow
                       ],
                       pictureSize: 30,
-                    )
-                  ],
-                ),
-                const Spacer(),
-                const Text(
-                  '- Slit and Kaba\n- Pant Suit',
-                  maxLines: 2,
-                ),
-                const Spacer(),
-                const Text('Deadline: May 20, 2022'),
-                const SizedBox(
-                  height: 4,
-                ),
-                Center(
-                  child: TextButton(
-                    child: const Text(
-                      'View order',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                      ),
                     ),
-                    onPressed: () {},
+                  )
+                ],
+              ),
+              const Spacer(),
+              const Text(
+                '- Slit and Kaba\n- Pant Suit',
+                maxLines: 2,
+              ),
+              const Spacer(),
+              const Text('Deadline: May 20, 2022'),
+              const SizedBox(
+                height: 4,
+              ),
+              Center(
+                child: TextButton(
+                  child: const Text(
+                    'View order',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
+                  onPressed: () {},
                 ),
-              ],
-            ),
-          )
-        ],
+              ),
+            ],
+          ),
+        ),
+        separatorBuilder: (contex, index) => const SizedBox(width: 40),
       ),
     );
   }

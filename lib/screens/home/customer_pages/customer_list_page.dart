@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
+import 'package:simply_tailored/screens/home/customer_pages/customer_details_screen.dart';
 import 'package:simply_tailored/screens/shared/custom_textformfield.dart';
 
 class CustomerListPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _CustomerListPageState extends State<CustomerListPage> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
-                  const SearchTextFormField(hintText: 'Search customer'),
+                  const PrefixTextFormField(hintText: 'Search customer', iconData: Icons.search,),
                   const Divider(height: 48),
                   ListView.separated(
                     shrinkWrap: true,
@@ -52,6 +53,13 @@ class _CustomerListPageState extends State<CustomerListPage> {
                       ),
                       title: const Text('Ama Jessica'),
                       trailing: const Icon(Icons.chevron_right),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) =>
+                                    CustomerDetailsScreen())));
+                      },
                     ),
                     separatorBuilder: (context, index) => const Divider(
                       indent: 80,

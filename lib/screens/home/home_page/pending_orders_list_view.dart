@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
+import 'package:simply_tailored/screens/home/order_pages/order_details_screen.dart';
+import 'package:simply_tailored/screens/shared/custom_buttons.dart';
 
 class PendingOrdersListView extends StatefulWidget {
   const PendingOrdersListView({Key? key}) : super(key: key);
@@ -20,7 +22,6 @@ class _PendingOrdersListViewState extends State<PendingOrdersListView> {
         padding: const EdgeInsets.symmetric(horizontal: 48),
         itemCount: 5,
         itemBuilder: (context, index) => Container(
-          clipBehavior: Clip.none,
           // height: 100,
           width: 260,
           padding: const EdgeInsets.fromLTRB(24, 24, 24, 10),
@@ -71,15 +72,14 @@ class _PendingOrdersListViewState extends State<PendingOrdersListView> {
                 height: 4,
               ),
               Center(
-                child: TextButton(
-                  child: const Text(
-                    'View order',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                  onPressed: () {},
+                child: CustomTextButton(
+                  labelText: 'View order',
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OrderDetailsScreen()));
+                  },
                 ),
               ),
             ],

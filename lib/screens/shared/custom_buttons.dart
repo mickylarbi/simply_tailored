@@ -26,8 +26,8 @@ class CustomElevatedButton extends StatelessWidget {
   }
 }
 
-class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({
+class SkipTextButton extends StatelessWidget {
+  const SkipTextButton({
     Key? key,
   }) : super(key: key);
 
@@ -43,6 +43,30 @@ class CustomTextButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomTextButton extends StatelessWidget {
+  final String labelText;
+  final void Function()? onPressed;
+  const CustomTextButton(
+      {Key? key, required this.labelText, required this.onPressed})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+      child: Text(
+        labelText,
+        style: const TextStyle(color: Colors.blue),
+      ),
+      style: TextButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
       ),
     );

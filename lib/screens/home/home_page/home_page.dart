@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
 import 'package:simply_tailored/screens/home/home_page/pending_orders_list_view.dart';
 import 'package:simply_tailored/screens/home/home_page/stats_card.dart';
+import 'package:simply_tailored/screens/shared/custom_buttons.dart';
 
 class HomePage extends StatelessWidget {
   final GlobalKey<AnimatedCircularChartState> _chartKey =
@@ -36,16 +37,9 @@ class HomePage extends StatelessWidget {
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       const Spacer(),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'View all',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue),
-                        ),
-                      ),
+                      CustomTextButton(labelText: 'View all', onPressed: () {
+                        //TODO: page controller jump to
+                      })
                     ],
                   ),
                 ),

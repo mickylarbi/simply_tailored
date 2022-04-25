@@ -60,7 +60,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ],
               ),
               const SizedBox(height: 50),
-              const CustomTextButton(),
+              const SkipTextButton(),
             ],
           ),
         ),

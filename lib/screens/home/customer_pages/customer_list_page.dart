@@ -35,7 +35,10 @@ class _CustomerListPageState extends State<CustomerListPage> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
-                  const PrefixTextFormField(hintText: 'Search customer', iconData: Icons.search,),
+                  const PrefixTextFormField(
+                    hintText: 'Search customer',
+                    iconData: Icons.search,
+                  ),
                   const Divider(height: 48),
                   ListView.separated(
                     shrinkWrap: true,
@@ -58,7 +61,7 @@ class _CustomerListPageState extends State<CustomerListPage> {
                             context,
                             MaterialPageRoute(
                                 builder: ((context) =>
-                                    CustomerDetailsScreen())));
+                                    const CustomerDetailsScreen())));
                       },
                     ),
                     separatorBuilder: (context, index) => const Divider(

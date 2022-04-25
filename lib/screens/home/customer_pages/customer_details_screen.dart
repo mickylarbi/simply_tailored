@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
 import 'package:simply_tailored/screens/home/home_page/pending_orders_list_view.dart';
+import 'package:simply_tailored/screens/home/order_pages/order_details_screen.dart';
 import 'package:simply_tailored/screens/shared/custom_buttons.dart';
 import 'package:simply_tailored/screens/shared/custom_textformfield.dart';
 
@@ -244,7 +245,6 @@ class _CustomerDetailsScreenState extends State<CustomerDetailsScreen> {
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       width: 260,
-                      clipBehavior: Clip.none,
                       padding: const EdgeInsets.fromLTRB(24, 24, 24, 10),
                       decoration: BoxDecoration(
                         boxShadow: [
@@ -293,17 +293,16 @@ class _CustomerDetailsScreenState extends State<CustomerDetailsScreen> {
                             height: 4,
                           ),
                           Center(
-                            child: TextButton(
-                              child: const Text(
-                                'View order',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
+                              child: CustomTextButton(
+                            labelText: 'View order',
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const OrderDetailsScreen()));
+                            },
+                          )),
                         ],
                       ),
                     );

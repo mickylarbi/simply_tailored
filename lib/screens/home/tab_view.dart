@@ -3,7 +3,7 @@ import 'package:simply_tailored/screens/app_resources.dart';
 import 'package:simply_tailored/screens/home/customer_pages/customer_list_page.dart';
 import 'package:simply_tailored/screens/home/home_page/home_page.dart';
 import 'package:simply_tailored/screens/home/more_page.dart';
-import 'package:simply_tailored/screens/home/order_list_page/order_list_page.dart';
+import 'package:simply_tailored/screens/home/order_pages/order_list_page.dart';
 
 class TabView extends StatefulWidget {
   const TabView({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class TabView extends StatefulWidget {
 }
 
 class _TabViewState extends State<TabView> {
-  ValueNotifier<int> _currentIndex = ValueNotifier<int>(0);
+  final ValueNotifier<int> _currentIndex = ValueNotifier<int>(0);
   final PageController _pageController = PageController();
 
   // @override

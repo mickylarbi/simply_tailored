@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simply_tailored/screens/app_resources.dart';
 import 'package:simply_tailored/screens/home/home_page/pending_orders_list_view.dart';
+import 'package:simply_tailored/screens/home/order_pages/order_details_screen.dart';
 import 'package:simply_tailored/screens/shared/custom_textformfield.dart';
 
 class OrderListPage extends StatefulWidget {
@@ -35,7 +36,8 @@ class _OrderListPageState extends State<OrderListPage> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
-                  const PrefixTextFormField(hintText: 'Search order', iconData: Icons.search),
+                  const PrefixTextFormField(
+                      hintText: 'Search order', iconData: Icons.search),
                   const Divider(height: 48),
                   ListView.separated(
                     shrinkWrap: true,
@@ -62,6 +64,13 @@ class _OrderListPageState extends State<OrderListPage> {
                           Icon(Icons.chevron_right)
                         ],
                       ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) =>
+                                    const OrderDetailsScreen())));
+                      },
                     ),
                     separatorBuilder: (context, index) => const Divider(
                       indent: 14,
